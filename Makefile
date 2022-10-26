@@ -5,10 +5,10 @@ all: $(EXE) $(EXES)
 
 SCRIPTS=bon_csv2txt
 
-prefix=/home/etbe/debian/bonnie++/debian/bonnie++/usr
+prefix=/usr
 eprefix=${prefix}
 #MORE_WARNINGS=-Weffc++
-WFLAGS=-Wall -W -Wshadow -Wpointer-arith -Wwrite-strings -pedantic -ffor-scope -Wcast-align -Wsign-compare -Wpointer-arith -Wwrite-strings -Wformat-security -Wswitch-enum -Winit-self $(MORE_WARNINGS)
+WFLAGS=-Wall -W -Wshadow -Wpointer-arith -Wwrite-strings -pedantic -Wcast-align -Wsign-compare -Wpointer-arith -Wwrite-strings -Wformat-security -Wswitch-enum -Winit-self $(MORE_WARNINGS)
 CFLAGS=-O2  -DNDEBUG $(WFLAGS) $(MORECFLAGS)
 CXX=g++ $(CFLAGS)
 LINK=g++
@@ -58,9 +58,9 @@ install-bin: $(EXE) $(EXES)
 	${INSTALL} $(SCRIPTS) $(eprefix)/bin
 
 install: install-bin
-	mkdir -p /home/etbe/debian/bonnie++/debian/bonnie++/usr/share/man/man1 /home/etbe/debian/bonnie++/debian/bonnie++/usr/share/man/man8
-	${INSTALL} -m 644 $(MAN1) /home/etbe/debian/bonnie++/debian/bonnie++/usr/share/man/man1
-	${INSTALL} -m 644 $(MAN8) /home/etbe/debian/bonnie++/debian/bonnie++/usr/share/man/man8
+	mkdir -p /usr/share/man/man1 /usr/share/man/man8
+	${INSTALL} -m 644 $(MAN1) /usr/share/man/man1
+	${INSTALL} -m 644 $(MAN8) /usr/share/man/man8
 
 %.o: %.cpp
 	$(CXX) -c $<
